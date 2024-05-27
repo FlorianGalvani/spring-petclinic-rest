@@ -24,6 +24,10 @@ jobs:
           cache: maven
       - name: Build with Maven
         run: mvn -B package --file pom.xml -Djacoco.skip=true -DdisableXmlReport=true
+      - name: Debug
+        run: ls -la
+      - name: List files in target directory after build
+        run: ls -la target
       - name: Archive Production Artifact
         if: success()
         uses: actions/upload-artifact@v2
